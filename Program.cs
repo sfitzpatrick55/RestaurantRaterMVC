@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using RestaurantRaterMVC.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
