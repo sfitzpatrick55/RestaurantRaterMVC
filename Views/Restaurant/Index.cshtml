@@ -30,11 +30,11 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @if (item.Score > 0)
+                    @if (item.Score > 0) // If restaurant has at least one rating, display the score
                     {
                         @Html.DisplayFor(modelItem => item.Score)
                     }
-                    else
+                    else @* If restaurant has zero ratings, display this text below *@
                     {
                         <span>Sorry no ratings yet</span>
                     }
