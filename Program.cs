@@ -17,10 +17,7 @@ if (!app.Environment.IsDevelopment())
 
 builder.Services.AddHttpsRedirection(options => options.HttpsPort = 443); // This will encrypt all traffic coming from our web app making it secure and keeping the browser happy about insecure traffic
 
-builder.Services.AddDbContext<RestaurantDbContext>(options =>
-    options.UseSqlServer(
-        Configuration.GetConnectionString("DefaultConnection")
-    )
+builder.Services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
 );
 
 app.UseHttpsRedirection();
