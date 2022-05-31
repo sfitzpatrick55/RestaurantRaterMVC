@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SwapiMVC.Models.Restaurant
+namespace RestaurantRaterMVC.Models.Restaurant
 {
     public class RestaurantListItem
     {

@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestaurantRaterMVC.Data;
 using RestaurantRaterMVC.Models.Restaurant;
-using SwapiMVC.Models.Restaurant;
 
 namespace RestaurantRaterMVC.Controllers
 {
