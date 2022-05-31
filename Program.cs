@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddHttpsRedirection(options => options.HttpsPort = 443); // This will encrypt all traffic coming from the web app making it secure and keeping the browser happy about insecure traffic
+// builder.Services.AddHttpsRedirection(options => options.HttpsPort = 443); // This will encrypt all traffic coming from the web app making it secure and keeping the browser happy about insecure traffic
 
 builder.Services.AddDbContext<RestaurantDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
