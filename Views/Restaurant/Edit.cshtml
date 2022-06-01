@@ -1,0 +1,39 @@
+@model RestaurantRaterMVC.Models.Restaurant.RestaurantEdit
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} @* This is JS validation scripts*@
+}
+
+@{
+    string title = "Edit " + Model.Name;
+    ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                @Html.DisplayNameFor(r => r.Name)
+                @Html.DisplayFor(r => r.Name)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(r => r.Location)
+                @Html.DisplayFor(r => r.Location)
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
