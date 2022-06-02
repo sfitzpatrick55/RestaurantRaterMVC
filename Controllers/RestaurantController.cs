@@ -111,5 +111,37 @@ namespace RestaurantRaterMVC.Controllers
 
             return RedirectToAction("Details", new { id = restaurant.Id});
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Restaurant restaurant = await _context.Restaurants.FindAsync(id);
+
+            if (restaurant == null)
+                return RedirectToAction(nameof(Index));
+
+            RestaurantDetail restaurantDetail = new RestaurantDetail()
+            {
+                Id = restaurant.Id,
+                Name = restaurant.Name,
+                Location = restaurant.Location,
+            };
+
+            return View(restaurantDetail);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id, RestaurantEdit model)
+        {
+            Restaurant restaurant = await _context.Restaurants.FindAsync(id);
+
+            if (restaurant == null)
+                return RedirectToAction(nameof(Index));
+
+            _context.Restaurants.Remove(restaurant);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
