@@ -15,19 +15,25 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div class="form-group">
+                @Html.DisplayNameFor(r => r.Id)
+                @Html.DisplayFor(r => r.Id)
+            </div>
+            <div>
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-                @Html.DisplayNameFor(r => r.Name)
-                @Html.DisplayFor(r => r.Name)
+                @* @Html.DisplayNameFor(r => r.Name)
+                @Html.DisplayFor(r => r.Name) *@
             </div>
             <div class="form-group">
-                @Html.DisplayNameFor(r => r.Location)
-                @Html.DisplayFor(r => r.Location)
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+                @* @Html.DisplayNameFor(r => r.Location)
+                @Html.DisplayFor(r => r.Location) *@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save Changes" class="btn btn-primary" />
-                <span asp-validation-for="Location" class="text-danger"></span>
             </div>
         </form>
     </div>
@@ -36,4 +42,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
