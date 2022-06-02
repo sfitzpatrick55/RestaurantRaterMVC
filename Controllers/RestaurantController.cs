@@ -27,7 +27,7 @@ namespace RestaurantRaterMVC.Controllers
             return View(restaurants);
         }
 
-        [HttpGet]
+        // [HttpGet]
         public async Task<IActionResult> Create()
         {
             return View();
@@ -112,7 +112,7 @@ namespace RestaurantRaterMVC.Controllers
             return RedirectToAction("Details", new { id = restaurant.Id});
         }
 
-        [HttpDelete]
+        // [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
             Restaurant restaurant = await _context.Restaurants.FindAsync(id);
