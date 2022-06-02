@@ -13,6 +13,7 @@ namespace RestaurantRaterMVC.Controllers
             _context = context;
         }
 
+        // [HttpGet]
         public async Task<IActionResult> Index()
         {
             IEnumerable<RatingListItem> ratings = await _context.Ratings
