@@ -25,5 +25,22 @@ namespace RestaurantRaterMVC.Controllers
 
             return View(ratings);
         }
+
+        // [HttpGet]
+        public async Task<IActionResult> Restaurant(int id)
+        {
+            IEnumerable<RatingListItem> ratings = await _context.Ratings
+            .Where(r => r.RestaurantId == id)
+            .Select(r => new RatingListItem()
+            {
+                RestaurantName = r.Restaurant.Name,
+                Score = r.Score,
+            }).ToListAsync();
+
+            Restaurant restaurant = await _context.Restaurants.FindAsync(id);
+            ViewBag.RestaurantName = restaurant.Name;
+
+            return View(ratings);
+        }
     }
 }
