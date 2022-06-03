@@ -11,9 +11,16 @@
 </p>
 
 <table class="table">
+    @foreach (var item in Model)
+    {
     <tr>
         <th>
-            <label asp-action=""
+            @Html.DisplayNameFor(model => model.RestaurantName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>            
     </tr>
+    }
+
 </table>
