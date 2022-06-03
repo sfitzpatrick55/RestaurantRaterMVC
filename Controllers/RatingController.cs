@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestaurantRaterMVC.Data;
+using RestaurantRaterMVC.Models.Rating;
 using RestaurantRaterMVC.Models.Restaurant;
 
 namespace RestaurantRaterMVC.Controllers
@@ -41,6 +42,32 @@ namespace RestaurantRaterMVC.Controllers
             ViewBag.RestaurantName = restaurant.Name;
 
             return View(ratings);
+        }
+
+        // [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(RatingCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            Rating rating = new Rating()
+            {
+                RestaurantId = model.RestaurantId,
+                Score = model.Score,
+            };
+
+            _context.Ratings.Add(rating);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
