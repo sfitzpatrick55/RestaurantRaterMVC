@@ -9,7 +9,7 @@ namespace RestaurantRaterMVC.Models.Rating
         public int RestaurantId { get; set; }
         
         [Required]
-        [Range(1, 10)]
+        [Range(1, 5)]
         public double Score { get; set; }
     }
 }
