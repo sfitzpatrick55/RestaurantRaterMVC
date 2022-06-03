@@ -1,14 +1,10 @@
 @model IEnumerable<RestaurantRaterMVC.Models.Rating.RatingListItem>
 
 @{
-    ViewData["Title"] = "Ratings";
+    ViewData["Title"] = ViewBag.RestaurantName;
 }
 
-<h1>Ratings</h1>
-
-<p>
-    @Html.ActionLink("Rate A Restaurant", "Create")
-</p>
+<h2>Ratings for @ViewBag.RestaurantName</h2>
 
 <table class="table">
     @foreach (var item in Model)
@@ -22,5 +18,8 @@
         </th>            
     </tr>
     }
-
 </table>
+
+<div>
+    @Html.ActionLink("Back to Index", "Index")
+</div>
