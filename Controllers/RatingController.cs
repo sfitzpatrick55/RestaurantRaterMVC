@@ -57,7 +57,7 @@ namespace RestaurantRaterMVC.Controllers
                 RatingCreate model = new RatingCreate();
                 model.RestaurantOptions = restaurantOptions;
 
-                return View();
+                return View(model);
             }
 
         [HttpPost]
